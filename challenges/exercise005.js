@@ -12,11 +12,18 @@ export const count1sand0s = (str) => {
 export const reverseNumber = (n) => {
   if (n === undefined) throw new Error("n is required");
   // Your code here!
+  const number = n.toString().split('').reverse().join('')
+  return + number
+
+
 };
 
 export const sumArrays = (arrs) => {
   if (arrs === undefined) throw new Error("arrs is required");
   // Your code here!
+  const arrSum = arrs.flatMap((num)=>num).reduce((prev, acc)=> prev+acc)
+
+  return arrSum
 };
 
 export const arrShift = (arr) => {
