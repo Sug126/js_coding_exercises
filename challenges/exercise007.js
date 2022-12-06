@@ -1,9 +1,10 @@
-/**
- * This function takes a number, e.g. 123 and returns the sum of all its digits, e.g 6 in this example.
- * @param {Number} n
- */
+
 export const sumDigits = (n) => {
   if (n === undefined) throw new Error("n is required");
+  return n
+    .toString()
+    .split("")
+    .reduce((acc, num) => (acc += parseInt(num)), 0);
 };
 
 /**
@@ -14,13 +15,10 @@ export const sumDigits = (n) => {
  * @param {Number} end
  * @param {Number} step
  */
-export const createRange = (start, end, step) => {
+export const createRange = (start, end, step= 1) => {
   if (start === undefined) throw new Error("start is required");
   if (end === undefined) throw new Error("end is required");
-  if (step === undefined)
-    console.log(
-      "FYI: Optional step parameter not provided. Remove this check once you've handled the optional step!"
-    );
+  return [...Array(end - start + step).keys()].map(x => x + start)
 };
 
 /**
