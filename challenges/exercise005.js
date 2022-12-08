@@ -1,10 +1,17 @@
 export const findNextNumber = (nums, n) => {
   if (nums === undefined) throw new Error("nums is required");
   if (n === undefined) throw new Error("n is required");
+  if (nums.indexOf(n) === -1 || nums.indexOf(n) === nums.length - 1)
+    return null;
+  return nums[nums.indexOf(n) + 1];
 };
 
 export const count1sand0s = (str) => {
   if (str === undefined) throw new Error("str is required");
+  return {
+    0: (str.match(/0/g) || []).length,
+    1: (str.match(/1/g) || []).length,
+  };
 };
 
 export const reverseNumber = (n) => {
@@ -33,13 +40,25 @@ export const findNeedle = (haystack, searchTerm) => {
   if (haystack === undefined) throw new Error("haystack is required");
   if (searchTerm === undefined) throw new Error("searchTerm is required");
   for (let key in haystack) {
-    if (typeof haystack[key] === "string" && haystack[key].toLowerCase().includes(searchTerm.toLowerCase())) {
-      return true
+    if (
+      typeof haystack[key] === "string" &&
+      haystack[key].toLowerCase().includes(searchTerm.toLowerCase())
+    ) {
+      return true;
     }
   }
-  return false
+  return false;
 };
 
 export const getWordFrequencies = (str) => {
   if (str === undefined) throw new Error("str is required");
+  const frequencies = {};
+  str
+    .toLowerCase()
+    .split(" ")
+    .map((word) => word.replace(/\W|_/g, ""))
+    .forEach((word) =>
+      frequencies[word] ? (frequencies[word] += 1) : (frequencies[word] = 1)
+    );
+  return frequencies;
 };
