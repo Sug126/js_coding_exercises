@@ -10,7 +10,7 @@ export const count1sand0s = (str) => {
 export const reverseNumber = (n) => {
   if (n === undefined) throw new Error("n is required");
   const reversedNum = n.toString().split("").reverse().join("");
-  return +reversedNum
+  return +reversedNum;
 };
 
 export const sumArrays = (arrs) => {
@@ -32,6 +32,12 @@ export const arrShift = (arr) => {
 export const findNeedle = (haystack, searchTerm) => {
   if (haystack === undefined) throw new Error("haystack is required");
   if (searchTerm === undefined) throw new Error("searchTerm is required");
+  for (let key in haystack) {
+    if (typeof haystack[key] === "string" && haystack[key].toLowerCase().includes(searchTerm.toLowerCase())) {
+      return true
+    }
+  }
+  return false
 };
 
 export const getWordFrequencies = (str) => {
