@@ -11,13 +11,11 @@ export const isValidDNA = (str) => {
   return str.match(dnaString) === null;
 };
 
-/**
- * This function will receive a valid DNA string (see above) and should return a string of the complementary base pairs. In DNA, T always pairs with A, and C always pairs with G. So a string of "ACTG" would have a complementary DNA string of "TGAC".
- * @param {String} str
- * @returns {String}
- */
+
 export const getComplementaryDNA = (str) => {
   if (str === undefined) throw new Error("str is required");
+  const compDNA = { T: "A", A: "T", C: "G", G: "C" };
+  return [...str].map((item) => compDNA[item.toUpperCase()]).join("");
 };
 
 export const isItPrime = (n) => {

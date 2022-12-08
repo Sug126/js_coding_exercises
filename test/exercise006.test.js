@@ -4,6 +4,7 @@ import {
   isItPrime,
   createMatrix,
   areWeCovered,
+  getComplementaryDNA
 } from "../challenges/exercise006";
 
 describe("sumMultiples", () => {
@@ -45,5 +46,12 @@ describe("areWeCovered", () => {
         { name: "Pedro", rota: ["Saturday", "Sunday", "Tuesday", "Wednesday"] },
       ], 'Monday')
     ).toBe(false);
+  });
+});
+
+describe("getComplementaryDNA", () => {
+  test("returns complementary sequence if valid sequence passed", () => {
+    expect(getComplementaryDNA("GGCTCAGTT")).toEqual("CCGAGTCAA");
+    expect(getComplementaryDNA("T")).toEqual("A");
   });
 });
